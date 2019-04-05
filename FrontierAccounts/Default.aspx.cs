@@ -45,25 +45,9 @@ namespace FrontierAccounts
             repeaterInactiveList.DataSource = accounts.Where(x => (AccountStatus)x.AccountStatusId == AccountStatus.Inactive).ToList();
             repeaterInactiveList.DataBind();
         }
-
-        protected void repeaterInactiveList_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            foreach (RepeaterItem item in repeaterInactiveList.Items)
-            {
-                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
-                {
-                    var listItem = e.Item.FindControl("liDueDate");
-
-
-                        //item.FindControl("liDueDate") as ListItem;
-
-
-
-                }
-            }
-        }
     }
 
+    //TODO: Move these classes to a seperate MODELS folder with other classes
     public class Account
     {
         public int Id { get; set; }
