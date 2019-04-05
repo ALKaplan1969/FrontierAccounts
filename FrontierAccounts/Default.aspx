@@ -162,7 +162,7 @@
                         <li><label>Email:</label><%# Eval("Email") %></li>
                         <li><label>Phone Number:</label><%# String.Format("{0:(###) ###-####}", Convert.ToInt64(Eval("PhoneNumber"))) %></li>
                         <li><label>Amount Due:</label><%# Eval("AmountDue",  "{0:c}") %></li>
-                        <li><label>Due Date:</label><div><%#  Eval("PaymentDueDate") != null ? Eval("PaymentDueDate", "{0:d}") : string.Empty %></div></li>
+                        <li><label runat="server" visible='<%# Eval("PaymentDueDate") != null %>'>Due Date:</label><div><%#  Eval("PaymentDueDate") != null ? Eval("PaymentDueDate", "{0:d}") : string.Empty %></div></li>
                     </ItemTemplate>
                 </asp:Repeater>
               </ul>
