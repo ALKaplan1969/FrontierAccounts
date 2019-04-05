@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +14,11 @@ namespace FrontierAccounts
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            bindLists(GetAccounts());
+            var accounts = GetAccounts();
+            if (accounts != null && accounts.Count > 0)
+                bindLists(accounts);
         }
-        
+
         //TODO: This could have been done in jquery as an ajax call
         public List<Account> GetAccounts()
         {
