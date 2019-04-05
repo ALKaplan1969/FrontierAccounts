@@ -16,7 +16,8 @@ namespace FrontierAccounts
         {
             bindLists(GetAccounts());
         }
-
+        
+        //TODO: This could have been done in jquery as an ajax call
         public List<Account> GetAccounts()
         {
             List<Account> accounts = new List<Account>();
@@ -34,6 +35,9 @@ namespace FrontierAccounts
             return accounts;
         }
 
+        //Chose to use a repeater with the list. But a more up todate way to implement may have been to use some other jquery or javascript based control
+        //Could have made a generic method to take in a type T of usercontrol and bind the control based on a passed value
+        //That meethod would be static and in it's own file so other pages could use it.
         private void bindLists(List<Account> accounts)
         {
             repeaterActiveList.DataSource = accounts.Where(x => (AccountStatus)x.AccountStatusId == AccountStatus.Active).ToList();
